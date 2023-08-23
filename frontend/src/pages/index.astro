@@ -1,0 +1,20 @@
+
+---
+import Layout from '../layouts/Layout.astro';
+import fetchApi from '../lib/strapi';
+import type {ProductsDataDto} from '../model/model';
+import {Home} from '../components/Home';
+import {Products} from '../components/Products/Products';
+
+const products = await fetchApi<ProductsDataDto>({
+  endpoint: 'products?populate=*',
+});
+
+const { data } = products;
+---
+
+<Layout title="Catalog Phones">
+	<main class="main">
+    <Products products={data} />
+	</main>
+</Layout>
