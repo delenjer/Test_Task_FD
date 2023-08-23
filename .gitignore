@@ -2,11 +2,11 @@
 dist/
 
 # generated types
-.astro/
-.idea/
+/.astro
+/.idea
 
 # dependencies
-node_modules/
+/node_modules
 
 # logs
 npm-debug.log*
