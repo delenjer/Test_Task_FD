@@ -1,13 +1,12 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
 import fetchApi from '../lib/strapi';
 import type {ProductsDataDto} from '../model/model';
-import {Home} from '../components/Home';
 import {Products} from '../components/Products/Products';
+import {PRODUCT_URL} from "../lib/strapi";
 
 const products = await fetchApi<ProductsDataDto>({
-  endpoint: 'products?populate=*',
+  endpoint: `${PRODUCT_URL}`,
 });
 
 const { data } = products;
@@ -15,6 +14,6 @@ const { data } = products;
 
 <Layout title="Catalog Phones">
 	<main class="main">
-    <Products products={data} />
+    	<Products client:load products={data} />
 	</main>
 </Layout>

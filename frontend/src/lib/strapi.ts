@@ -5,6 +5,8 @@ interface Props {
   wrappedByList?: boolean;
 }
 
+export const PRODUCT_URL = 'products?populate=*';
+
 export default async function fetchApi<T>({
   endpoint,
   query,
